@@ -27,7 +27,7 @@
     justify-content: center;
   gap: 30px;
   padding: 60px 40px;
-  background: #f5faf7;
+  /* background: #f5faf7; */
   flex-wrap: wrap;
 
 }
@@ -44,6 +44,12 @@
   transition: box-shadow 0.3s ease;
   border: none;
   outline: none;
+}
+.card:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-2xl */
+  transform: scale(1.05);
+  background-color: #f0fdf4; /* green-50 */
+  border-color: #bbf7d0; /* green-200 */
 }
 
 
