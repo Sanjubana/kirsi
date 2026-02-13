@@ -1,0 +1,107 @@
+.about-page {
+  width: 100%;
+  min-height: 100vh;
+  font-family: sans-serif;
+}
+
+
+.about-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 40px;
+  background: white;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+.back-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #2e7d32;
+  background: white;
+  color: #2e7d32;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  background: #2e7d32;
+  color: white;
+}
+
+/* Hero */
+.hero-section {
+  position: relative;
+  height: 85vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding-left: 60px;
+}
+
+/* Green Overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(46, 125, 50, 0.75);
+}
+
+
+.hero-content {
+  position: relative;
+  max-width: 650px;
+  color: white;
+}
+
+.hero-content h1 {
+  font-size: 52px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 20px;
+  margin-bottom: 30px;
+  color: #e8f5e9;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.join-btn {
+  background: white;
+  color: #2e7d32;
+  padding: 12px 28px;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.join-btn:hover {
+  transform: scale(1.05);
+}
+
+.learn-btn {
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 12px 28px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.learn-btn:hover {
+  transform: scale(1.05);
+}
+

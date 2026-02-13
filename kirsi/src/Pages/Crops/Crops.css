@@ -1,40 +1,33 @@
-.tools-page {
+.crops-page {
   padding: 24px;
   background: #f9fafb;
   min-height: 100vh;
 }
-.tools-header {
+.crops-header {
   display: flex;
   align-items: center;
   gap: 12px;
   margin-bottom: 30px;
 }
-
 .back-arrow {
   font-size: 24px;
   cursor: pointer;
 }
-
-.tools-header h2 {
+.crops-header h2 {
   margin: 0;
   font-size: 22px;
 }
-
-.tools-header p {
+.crops-header p {
   margin: 2px 0 0;
   color: #6b7280;
   font-size: 14px;
 }
-
-
-.tools-grid {
+.crops-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 26px;
 }
-
-
-.tool-card {
+.crop-card {
   background: #fff;
   border-radius: 18px;
   padding: 30px 22px;
@@ -43,15 +36,11 @@
   border: 2px solid transparent;
   transition: all 0.3s ease;
 }
-
-
-.tool-card:hover {
+.crop-card:hover {
   transform: scale(1.03);
   border-color: #3cb371;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08);
 }
-
-
 .icon {
   width: 58px;
   height: 58px;
@@ -59,37 +48,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 26px;
+    font-size: 26px;
   margin: 0 auto 16px;
 }
-
-.icon.buy {
-  background: #d1fae5;
-  color: #059669;
+.icon.info {
+  background: #e8f5e9;
+    color: #2e7d32;
 }
-
-.icon.sell {
-  background: #fef3c7;
-  color: #d97706;
+.icon.disease {
+  background: #fff3e0;
+    color: #ff9800;
 }
-
-.icon.rent {
-  background: #e0f2fe;
-  color: #0284c7;
+.icon.expert {
+  background: #e3f2fd;
+    color: #1976d2;
 }
-
-.icon.mechanic {
-  background: #fee2e2;
-  color: #dc2626;
+.icon.shop {
+  background: #fce4ec;
+    color: #c2185b;
 }
-
-.tool-card h3 {
-  margin: 8px 0;
+.crop-card h3 {
+  margin-top: 8px 0;
   font-size: 18px;
 }
-
-.tool-card p {
-  font-size: 14px;
-  color: #6b7280;
+.crop-card p {
+    font-size: 14px;
+  color: #555;
   margin: 10px 0 20px;
+
 }
+

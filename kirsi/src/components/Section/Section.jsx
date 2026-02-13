@@ -26,7 +26,7 @@ function Section() {
             <div className='icon'>🌾</div>
             <h2>Crop Advisory</h2>
             <p> Crop information, pesticide guidance,disease help from experts</p>
-            <button>View Crops </button>
+            <button onClick={() => navigate('/crops')}>View Crops </button>
             <span className='info'>Services available near you <br /> within 50 km </span>
         </div>
          <div className='card'>
