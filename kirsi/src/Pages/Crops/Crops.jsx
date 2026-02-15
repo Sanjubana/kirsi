@@ -23,12 +23,12 @@ const Crops = () => {
               <h3>Crop Disease Help</h3>
               <p>Identify and treat crop diseases with expert guidance</p>
             </div>
-            <div className="crop-card" onClick={() => navigate('/Talk-to-experts')}>
+            <div className="crop-card" onClick={() => navigate('/experts')}>
                 <div className="icon expert">👩‍🌾</div>
                 <h3>Talk to Experts</h3>
                 <p> Call crop advisor or experts</p>
                 </div>
-                <div className="crop-card" onClick={() => navigate('/nearby-Agri-shops')}>
+                <div className="crop-card" onClick={() => navigate('/Cropshops')}>
                     <div className="icon shop">🏪</div>
                     <h3>Nearby Agri Shops</h3>
                     <p>Find nearby shops for seeds, fertilizers, pesticides and more</p>

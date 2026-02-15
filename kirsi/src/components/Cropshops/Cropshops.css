@@ -1,0 +1,147 @@
+.advisor-page {
+  padding: 30px 60px;
+  background: #f9fafb;
+}
+
+/* Header */
+.advisor-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.back-icon {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.advisor-header h1 {
+  font-size: 32px;
+  margin: 0;
+}
+
+.advisor-header p {
+  margin: 4px 0 0;
+  color: #6b7280;
+}
+
+/* Location bar */
+.location-bar {
+  margin: 25px 0;
+  background: #ecfdf3;
+  padding: 14px 18px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #166534;
+  font-size: 14px;
+}
+
+.change-location {
+  color: #16a34a;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* Section title */
+.advisor-title h2 {
+  font-size: 26px;
+  margin-bottom: 4px;
+}
+
+.advisor-title p {
+  color: #6b7280;
+  margin-bottom: 25px;
+}
+
+/* Grid */
+.advisor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 25px;
+}
+
+/* Card */
+.advisor-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* Card top */
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  position: relative;
+}
+
+.avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.avatar.yellow {
+  background: #fef9c3;
+  color: #ca8a04;
+}
+
+.info h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.type {
+  margin-top: 4px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* Status */
+.status {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.verified {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+/* Distance */
+.distance {
+  margin: 16px 0;
+  color: #374151;
+  font-size: 14px;
+}
+
+/* Button */
+.call-btn {
+  width: 100%;
+  background: #16a34a;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.call-btn:hover {
+  background: #15803d;
+}

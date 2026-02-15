@@ -1,5 +1,6 @@
 import './Tools.css'
 import { useNavigate } from 'react-router-dom'
+import Selltools from '../../components/Selltools/Selltools'
 
 const Tools = () => {
   const navigate = useNavigate()
@@ -21,7 +22,7 @@ const Tools = () => {
           <p>Buy tools from nearby farmers</p>
         </div>
 
-        <div className="tool-card" onClick={() => navigate('/sell-tools')}>
+        <div className="tool-card" onClick={() => navigate('/Selltools')}>
           <div className="icon sell">⬆️</div>
           <h3>Sell Tools</h3>
           <p>Sell your old or unused tools</p>
@@ -33,7 +34,7 @@ const Tools = () => {
           <p>Rent tools for short-term use</p>
         </div>
 
-        <div className="tool-card" onClick={() => navigate('/mechanic')}>
+        <div className="tool-card" onClick={() => navigate('/Mechanic')}>
           <div className="icon mechanic">🔧</div>
           <h3>Mechanic Services</h3>
           <p>Find nearby mechanics</p>

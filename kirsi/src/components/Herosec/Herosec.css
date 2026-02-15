@@ -5,21 +5,21 @@
 }
 
 
-.about-header {
+/* .about-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 16px 40px;
   background: white;
-}
+} */
 
-.logo {
+/* .logo {
   font-size: 20px;
   font-weight: bold;
   color: #2e7d32;
-}
+} */
 
-.back-btn {
+/* .back-btn {
   padding: 8px 16px;
   border-radius: 8px;
   border: 1px solid #2e7d32;
@@ -27,12 +27,12 @@
   color: #2e7d32;
   cursor: pointer;
   transition: 0.3s;
-}
+} */
 
-.back-btn:hover {
+/* .back-btn:hover {
   background: #2e7d32;
   color: white;
-}
+} */
 
 /* Hero */
 .hero-section {
@@ -55,14 +55,16 @@
 
 .hero-content {
   position: relative;
-  max-width: 650px;
+  max-width: 700px;
+  text-align: left;
   color: white;
 }
 
 .hero-content h1 {
-  font-size: 52px;
+  font-size: 70px;
   font-weight: bold;
   margin-bottom: 20px;
+  ; 
 }
 
 .hero-content p {
@@ -103,5 +105,368 @@
 
 .learn-btn:hover {
   transform: scale(1.05);
+}
+
+.mission-container {
+  background: #f4f6f5;
+  min-height: 100vh;
+  padding: 20px 60px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+
+/* Main Content */
+.mission-content {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Image */
+.mission-image img {
+  width: 500px;
+  height: 500px;
+  margin-top: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+.mission-text {
+  flex: 1;
+}
+
+.mission-text h1 {
+  font-size: 43px;
+  color: #0f6b34;
+  margin-bottom: 15px;
+}
+
+.mission-description {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+
+.feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+.feature-item-c {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-right: 34px;
+}
+.feature-item-a {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-right: 20px;
+}
+
+.icon {
+  background: #e6f4ea;
+  color: #1e7f3e;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+
+
+.feature-item h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #1f1f1f;
+}
+
+
+.feature-item p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .mission-content {
+    flex-direction: column;
+  }
+
+  .mission-image img {
+    width: 100%;
+  }
+
+  .mission-container {
+    padding: 20px;
+  }
+}
+
+.offer-section {
+  background: #dfeee4;
+  padding: 80px 60px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.offer-heading {
+  font-size: 42px;
+  color: #0f6b34;
+  margin-bottom: 60px;
+  font-weight: 700;
+}
+
+/* Cards Layout */
+.offer-cards {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Card Design */
+.offer-card {
+  background: #f9fbfa;
+  width: 320px;
+  padding: 40px 30px;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  transition: 0.3s ease;
+  position: relative;
+}
+
+.offer-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon Box */
+.icon-box {
+  background: #cfe9d8;
+  color: #1e7f3e;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Card Text */
+.offer-card h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #1f1f1f;
+}
+
+.offer-card p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .offer-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .offer-section {
+    padding: 60px 20px;
+  }
+}
+
+
+.why-section {
+  background: #f4f6f5;
+  padding: 80px 60px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.why-heading {
+  text-align: center;
+  font-size: 42px;
+  color: #0f6b34;
+  margin-bottom: 60px;
+  font-weight: 700;
+}
+
+/* Grid Layout */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+/* Card Style */
+.why-card {
+  background: #e6f2eb;
+  padding: 30px;
+  border-radius: 18px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  border: 2px solid #cce3d6;
+  transition: 0.3s ease;
+}
+
+.why-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Icon */
+.why-icon {
+  background: #1e7f3e;
+  color: white;
+  width: 55px;
+  height: 55px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+/* Text */
+.why-card h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  color: #1f1f1f;
+}
+
+.why-card p {
+  margin: 0;
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-section {
+    padding: 60px 20px;
+  }
+}
+
+
+/* Vision Section */
+.vision-section {
+  position: relative;
+  background: url("/rural-bg.jpg") center/cover no-repeat;
+  padding: 120px 20px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.vision-overlay {
+  background: rgba(226, 241, 231, 0.9);
+  padding: 60px 20px;
+}
+
+.vision-section h2 {
+  font-size: 42px;
+  color: #0f6b34;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.vision-section p {
+  max-width: 850px;
+  margin: auto;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #444;
+}
+
+/* CTA Section */
+.cta-section {
+  background: #2f7d32;
+  padding: 80px 20px;
+  text-align: center;
+  color: white;
+}
+
+.cta-section h2 {
+  font-size: 40px;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+/* Buttons */
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: white;
+  color: #2f7d32;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #f1f1f1;
+}
+
+.btn-outline {
+  background: transparent;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 16px;
+  border: 2px solid white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: white;
+  color: #2f7d32;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .vision-section h2,
+  .cta-section h2 {
+    font-size: 30px;
+  }
+
+  .vision-section p {
+    font-size: 16px;
+  }
 }
 

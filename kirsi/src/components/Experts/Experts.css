@@ -1,0 +1,139 @@
+.advisor-page {
+  padding: 30px 60px;
+  background: #f9fafb;
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* HEADER */
+.advisor-header h1 {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.advisor-header p {
+  color: #555;
+  font-size: 15px;
+}
+
+/* LOCATION BAR */
+.advisor-location {
+  margin: 25px 0;
+  background: #ecfdf3;
+  border-radius: 12px;
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #15803d;
+  font-size: 14px;
+}
+
+.change-location {
+  background: none;
+  border: none;
+  color: #15803d;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* TITLE */
+.advisor-title {
+  margin-top: 20px;
+}
+
+.advisor-title h2 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.advisor-title p {
+  color: #666;
+  font-size: 14px;
+}
+
+/* GRID */
+.advisor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 25px;
+}
+
+/* CARD */
+.advisor-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 22px;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  transition: 0.3s ease;
+}
+
+.advisor-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* AVATAR */
+.advisor-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #d1fae5;
+  color: #047857;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* STATUS */
+.advisor-status {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.available {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+/* TEXT */
+.advisor-specialty {
+  font-weight: 600;
+  margin: 5px 0;
+}
+
+.advisor-location-text {
+  color: #444;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* BUTTON */
+.advisor-btn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #16a34a;
+  color: white;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.advisor-btn:hover {
+  background: #15803d;
+}
