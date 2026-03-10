@@ -38,11 +38,11 @@ export default function MechanicServices() {
   
   return (
     <div className="mechanic-page">
-      {/* Header */}
+   
       <div className="page-header">
-        <button className="back-btn">
-          <FaArrowLeft />
-        </button>
+      <button className="back-btn" onClick={() => window.history.back()}>
+                <FaArrowLeft />
+              </button>
         <div>
           <h1>Tools & Equipment</h1>
           <p>Find mechanics near you</p>

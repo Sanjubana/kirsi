@@ -12,13 +12,8 @@ const Crops = () => {
           <p>Choose a service below</p>
         </div>
         <div className="crops-grid">
-          <div className="crop-card" onClick={() => navigate('/crop-info')}>
-            <div className="icon info">📚</div>
-            <h3>Crop Information</h3>
-            <p>Best practice , fertilizer & growth stages</p>
-
-          </div>
-            <div className="crop-card" onClick={() => navigate('/crop-disease-help')}>
+          
+            <div className="crop-card" onClick={() => navigate('/Cropadvisory')}>
               <div className="icon disease">⚠️</div>
               <h3>Crop Disease Help</h3>
               <p>Identify and treat crop diseases with expert guidance</p>
@@ -33,6 +28,12 @@ const Crops = () => {
                     <h3>Nearby Agri Shops</h3>
                     <p>Find nearby shops for seeds, fertilizers, pesticides and more</p>
                 </div>
+                <div className="crop-card" onClick={() => navigate('/crop-info')}>
+            <div className="icon info">📚</div>
+            <h3>Crop Information</h3>
+            <p>Best practice , fertilizer & growth stages</p>
+
+          </div>
         </div>
     </div>
   )

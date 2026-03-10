@@ -31,7 +31,7 @@ const advisors = [
 export default function Cropshops() {
   return (
     <div className="advisor-page">
-      {/* Header */}
+  
       <div className="advisor-header">
         <FaArrowLeft className="back-icon" />
         <div>
@@ -40,7 +40,7 @@ export default function Cropshops() {
         </div>
       </div>
 
-      {/* Location bar */}
+     
       <div className="location-bar">
         <div>
           <FaMapMarkerAlt /> Showing nearby services near <b>Pune</b> within 50 km
@@ -48,13 +48,12 @@ export default function Cropshops() {
         <span className="change-location">Change location</span>
       </div>
 
-      {/* Section title */}
+      
       <div className="advisor-title">
         <h2>Nearby Agriculture Shops</h2>
         <p>Find trusted Krishi Seva Kendras and agri shops near you</p>
       </div>
 
-      {/* Cards */}
       <div className="advisor-grid">
         {advisors.map((item, index) => (
           <div className="advisor-card" key={index}>

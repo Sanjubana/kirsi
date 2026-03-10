@@ -1,0 +1,134 @@
+.buytools-page{
+padding:40px 60px;
+background:#f6f7f8;
+min-height:100vh;
+}
+
+.section-title{
+font-size:32px;
+font-weight:700;
+margin-bottom:30px;
+color:#1f2937;
+}
+
+/* GRID */
+
+.tools-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
+
+/* CARD */
+
+.tool-card{
+background:white;
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 6px 18px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.tool-card:hover{
+transform:translateY(-5px);
+}
+
+/* IMAGE */
+
+.tool-img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+/* INFO */
+
+.tool-info{
+padding:18px;
+}
+
+/* HEADER */
+
+.tool-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:8px;
+}
+
+.tool-header h3{
+font-size:18px;
+font-weight:600;
+}
+
+/* BADGE */
+
+.badge{
+padding:4px 10px;
+border-radius:20px;
+font-size:12px;
+font-weight:600;
+}
+
+.badge.New{
+background:#dcfce7;
+color:#16a34a;
+}
+
+.badge.Used{
+background:#fde68a;
+color:#92400e;
+}
+
+/* PRICE */
+
+.price{
+color:#16a34a;
+font-size:24px;
+margin:8px 0;
+}
+
+/* LOCATION */
+
+.location{
+color:#6b7280;
+font-size:14px;
+margin-bottom:15px;
+}
+
+/* BUTTON GROUP */
+
+.btn-group{
+display:flex;
+gap:12px;
+}
+
+/* BUTTONS */
+
+.call-btn,
+.whatsapp-btn{
+flex:1;
+padding:10px;
+border:none;
+border-radius:8px;
+font-weight:600;
+cursor:pointer;
+color:white;
+font-size:14px;
+}
+
+.call-btn{
+background:#16a34a;
+}
+
+.whatsapp-btn{
+background:#22c55e;
+}
+
+.call-btn:hover{
+background:#15803d;
+}
+
+.whatsapp-btn:hover{
+background:#16a34a;
+}

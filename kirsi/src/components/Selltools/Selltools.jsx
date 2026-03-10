@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./SellTools.css";
-import { FaMapMarkerAlt, FaCamera } from "react-icons/fa";
+import { FaMapMarkerAlt, FaCamera , FaArrowLeft } from "react-icons/fa";
 
 const SellTools = () => {
   const [condition, setCondition] = useState("used");
@@ -10,7 +10,12 @@ const SellTools = () => {
 
      
       <div className="page-header">
-        <h1>Tools & Equipment</h1>
+        
+        <button className="back-btn" onClick={() => window.history.back()}>
+          <FaArrowLeft />
+        </button>
+        
+        <h1>Tools & Equipment</h1>  
         <p>Sell your tools to nearby farmers</p>
       </div>
 

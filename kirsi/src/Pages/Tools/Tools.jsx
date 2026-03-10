@@ -16,7 +16,7 @@ const Tools = () => {
       </div>
 
       <div className="tools-grid">
-        <div className="tool-card" onClick={() => navigate('/buy-tools')}>
+        <div className="tool-card" onClick={() => navigate('/Buytools')}>
           <div className="icon buy">🛒</div>
           <h3>Buy Tools</h3>
           <p>Buy tools from nearby farmers</p>
@@ -28,7 +28,7 @@ const Tools = () => {
           <p>Sell your old or unused tools</p>
         </div>
 
-        <div className="tool-card" onClick={() => navigate('/rent-tools')}>
+        <div className="tool-card" onClick={() => navigate('/Renttools')}>
           <div className="icon rent">📅</div>
           <h3>Rent Tools</h3>
           <p>Rent tools for short-term use</p>

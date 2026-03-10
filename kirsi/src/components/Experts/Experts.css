@@ -5,7 +5,7 @@
   font-family: "Segoe UI", sans-serif;
 }
 
-/* HEADER */
+
 .advisor-header h1 {
   font-size: 34px;
   font-weight: 700;
@@ -17,7 +17,7 @@
   font-size: 15px;
 }
 
-/* LOCATION BAR */
+
 .advisor-location {
   margin: 25px 0;
   background: #ecfdf3;
@@ -38,7 +38,7 @@
   cursor: pointer;
 }
 
-/* TITLE */
+
 .advisor-title {
   margin-top: 20px;
 }
@@ -53,7 +53,7 @@
   font-size: 14px;
 }
 
-/* GRID */
+
 .advisor-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -61,7 +61,7 @@
   margin-top: 25px;
 }
 
-/* CARD */
+
 .advisor-card {
   background: #ffffff;
   border-radius: 18px;
@@ -76,7 +76,6 @@
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
 }
 
-/* AVATAR */
 .advisor-avatar {
   width: 46px;
   height: 46px;
@@ -91,7 +90,7 @@
   margin-bottom: 10px;
 }
 
-/* STATUS */
+
 .advisor-status {
   position: absolute;
   top: 18px;
@@ -107,7 +106,7 @@
   color: #15803d;
 }
 
-/* TEXT */
+
 .advisor-specialty {
   font-weight: 600;
   margin: 5px 0;
@@ -119,7 +118,7 @@
   margin-top: 5px;
 }
 
-/* BUTTON */
+
 .advisor-btn {
   width: 100%;
   margin-top: 15px;
