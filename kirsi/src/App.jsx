@@ -1,9 +1,11 @@
 import { useState } from 'react'
-import Navbar from './components/Navbar/NAvbar'
+import Navbar from './components/Navbar/Navbar'
 import './App.css'
 import {Routes, Route} from 'react-router-dom'
 import Home from './Pages/Home/Home'
 import Tools from './Pages/Tools/Tools'
+import Login from './Pages/Login/login'
+import Signup from './Pages/Signup/Signup'
 import Crops from './Pages/Crops/Crops'
 import Animal from './Pages/Animal/Animal'
 import Aboutus from './Pages/Aboutus/Aboutus'
@@ -28,6 +30,8 @@ const App = () => {
           <Route path='/' element={<Home/>}/>
           <Route path='/about' element={<Aboutus/>}/>
           <Route path='/tools' element={<Tools/>}/>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/signup' element={<Signup/>}/>
           <Route path='/Buytools' element={<BuyTools/>}/>
           <Route path='/Selltools' element={<Selltools/>}/>
           <Route path='/Mechanic' element={<MechanicServices/>}/>

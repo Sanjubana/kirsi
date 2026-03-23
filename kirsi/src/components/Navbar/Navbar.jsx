@@ -27,7 +27,7 @@ const Navbar = () => {
         </ul>
      <div className = "navbar-right">
         {/* <img src={} alt ="" /> */}
-        <button > login / signup</button>
+        <button className="login-btn" onClick={ () => handleNav("Login", "/login")}> login / signup</button>
         </div>   
     </div>
   )

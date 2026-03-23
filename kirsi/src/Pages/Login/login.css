@@ -1,0 +1,200 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* MAIN CONTAINER */
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* LEFT SIDE */
+.left {
+  flex: 1;
+  background: linear-gradient(rgba(0,128,0,0.75), rgba(0,128,0,0.75)),
+              url("https://images.unsplash.com/photo-1592982537447-7440770cbfc9");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.logo-box {
+  background: white;
+  color: green;
+  padding: 10px;
+  border-radius: 12px;
+  font-size: 20px;
+}
+
+.left h1 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.left p {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* RIGHT SIDE */
+.right {
+  flex: 1;
+  background: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CARD */
+.card {
+  width: 360px;
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.card p {
+  font-size: 14px;
+  color: gray;
+  margin-bottom: 2px;
+}
+
+/* INPUT */
+input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 15px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s;
+}
+
+/* input:focus {
+  border-color: green;
+} */
+
+/* TOGGLE BUTTONS */
+.toggle-btns {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.toggle-btns button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  /* background: white; */
+  cursor: pointer;
+  font-size: 14px;
+  /* transition: 0.2s; */
+}
+
+/* NO DARK ACTIVE */
+/* .toggle-btns button:hover {
+  border-color: green;
+  color: green;
+} */
+
+/* PRIMARY BUTTON */
+.primary-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: #0aa34f;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 15px;
+  transition: 0.3s;
+}
+
+/* .primary-btn:hover {
+  background: #088c43;
+} */
+
+/* OTP BOX */
+.otp-box {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.otp-box input {
+  width: 45px;
+  height: 50px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+/* FORGOT PASSWORD */
+.forgot {
+  font-size: 12px;
+  color: #0aa34f;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+/* DIVIDER */
+.divider {
+  text-align: center;
+  margin: 15px 0;
+  color: #aaa;
+  font-size: 13px;
+}
+
+/* SIGNUP */
+.signup {
+  text-align: center;
+  font-size: 14px;
+}
+
+.signup span {
+  color: #0aa34f;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left {
+    height: 40%;
+    padding: 30px;
+  }
+
+  .right {
+    height: 60%;
+  }
+}
