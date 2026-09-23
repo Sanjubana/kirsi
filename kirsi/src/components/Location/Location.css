@@ -1,0 +1,95 @@
+.location-bar-reusable {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  margin-bottom: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.location-bar-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  width: 100%;
+}
+
+.location-bar-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-text-main);
+  font-size: 0.9rem;
+}
+
+.location-marker-icon {
+  color: var(--color-primary);
+  font-size: 1.1rem;
+}
+
+.location-coords {
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  font-family: monospace;
+}
+
+.share-location-btn {
+  font-weight: 600;
+}
+
+.live-location-badge {
+  font-size: 0.8rem;
+  color: var(--color-success);
+  font-weight: 700;
+  background-color: rgba(45, 106, 79, 0.08);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(45, 106, 79, 0.15);
+}
+
+.manual-location-form {
+  display: flex;
+  gap: var(--space-xs);
+  width: 100%;
+  max-width: 450px;
+  margin-top: 4px;
+}
+
+.manual-location-input {
+  flex-grow: 1;
+}
+
+/* Distance Badge */
+.distance-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background-color: rgba(45, 106, 79, 0.08);
+  color: var(--color-primary-hover);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 700;
+  border: 1px solid rgba(45, 106, 79, 0.12);
+  width: fit-content;
+}
+
+.badge-marker-icon {
+  font-size: 0.8rem;
+}
+
+.badge-divider {
+  opacity: 0.4;
+  margin: 0 2px;
+}
+
+.badge-location {
+  color: var(--color-text-main);
+}

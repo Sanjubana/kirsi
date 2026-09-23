@@ -1,7 +1,9 @@
+import React from "react";
 import "./Cropshops.css";
-import { FaArrowLeft, FaMapMarkerAlt, FaPhoneAlt, FaStore } from "react-icons/fa";
+import { FaMapMarkerAlt, FaPhoneAlt, FaStore } from "react-icons/fa";
+import { Card, Button, BackButton } from "../ui";
 
-const advisors = [
+const shops = [
   {
     name: "Krishi Seva Kendra Shirur",
     type: "Seeds, Fertilizer, Pesticides",
@@ -30,56 +32,56 @@ const advisors = [
 
 export default function Cropshops() {
   return (
-    <div className="advisor-page">
-  
-      <div className="advisor-header">
-        <FaArrowLeft className="back-icon" />
-        <div>
-          <h1>Crop Advisory</h1>
-          <p>Find trusted agriculture shops</p>
+    <div className="cropshops-page fade-in">
+      <div className="cropshops-header">
+        <BackButton label="Back to Crops" to="/crops" />
+        <div className="cropshops-title-section">
+          <h2>Nearby Agri Shops</h2>
+          <p>Find trusted Krishi Seva Kendras and agriculture shops near you</p>
         </div>
       </div>
 
-     
       <div className="location-bar">
-        <div>
-          <FaMapMarkerAlt /> Showing nearby services near <b>Pune</b> within 50 km
+        <div className="location-bar-left">
+          <FaMapMarkerAlt />
+          <span>Showing shops near <b>Pune</b> within 50 km</span>
         </div>
-        <span className="change-location">Change location</span>
+        <Button variant="text" size="sm" onClick={() => alert('Location selection coming soon!')}>
+          Change location
+        </Button>
       </div>
 
-      
-      <div className="advisor-title">
-        <h2>Nearby Agriculture Shops</h2>
-        <p>Find trusted Krishi Seva Kendras and agri shops near you</p>
-      </div>
-
-      <div className="advisor-grid">
-        {advisors.map((item, index) => (
-          <div className="advisor-card" key={index}>
-            <div className="card-top">
-              <div className="avatar yellow">
-                <FaStore />
+      <div className="provider-grid">
+        {shops.map((shop, index) => (
+          <Card key={index} hoverLift className="provider-card">
+            <Card.Body className="provider-card-body">
+              <div className="provider-card-top">
+                <div className="provider-card-avatar shop">
+                  <FaStore />
+                </div>
+                {shop.verified && (
+                  <span className="provider-card-badge">✔ Verified</span>
+                )}
               </div>
 
-              <div className="info">
-                <h3>{item.name}</h3>
-                <p className="type">{item.type}</p>
+              <div className="provider-card-details">
+                <h3 className="provider-card-name">{shop.name}</h3>
+                <p className="provider-card-specialty shop">{shop.type}</p>
+                <p className="provider-card-location">
+                  <FaMapMarkerAlt /> {shop.distance}
+                </p>
               </div>
 
-              {item.verified && (
-                <span className="status verified">✔ Verified</span>
-              )}
-            </div>
-
-            <div className="distance">
-              <FaMapMarkerAlt /> {item.distance}
-            </div>
-
-            <button className="call-btn">
-              <FaPhoneAlt /> Call Shop
-            </button>
-          </div>
+              <Button
+                variant="primary"
+                className="provider-card-action"
+                leftIcon={<FaPhoneAlt />}
+                onClick={() => alert(`Calling ${shop.name}...`)}
+              >
+                Call Shop
+              </Button>
+            </Card.Body>
+          </Card>
         ))}
       </div>
     </div>

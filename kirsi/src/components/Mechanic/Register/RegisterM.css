@@ -1,11 +1,14 @@
 .register-container {
   min-height: 100vh;
-  background: linear-gradient(to right, #f0fdf4, #dcfce7);
+  background: linear-gradient(135deg, var(--color-primary-light), #f0fdf4);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 40px;
-  font-family: Arial, sans-serif;
+}
+
+.register-back-btn {
+  margin-bottom: var(--space-md);
 }
 
 .register-card {

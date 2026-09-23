@@ -1,177 +1,454 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: sans-serif;
-}
-
-.signup-container {
+.signup-page-container {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--color-bg-main);
 }
 
-/* LEFT SIDE */
-.left-section {
+/* Left panel styles */
+.signup-left-panel {
+  display: none;
   flex: 1;
-  background: url("https://images.unsplash.com/photo-1592982537447-7440770cbfc9")
-    no-repeat center/cover;
+  background-image: url('../../assets/farmer.jpeg'); /* Fallback background */
+  background-size: cover;
+  background-position: center;
   position: relative;
 }
 
-.overlay {
-  background: rgba(0, 128, 0, 0.7);
-  height: 100%;
-  color: white;
-  padding: 60px;
+@media (min-width: 992px) {
+  .signup-left-panel {
+    display: block;
+  }
+}
+
+.signup-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(27, 67, 50, 0.9) 0%,
+    rgba(8, 28, 21, 0.95) 100%
+  );
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  padding: var(--space-2xl);
+  color: #ffffff;
 }
 
-.brand {
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 30px;
-}
-
-.overlay h1 {
-  font-size: 40px;
-  margin-bottom: 15px;
-}
-
-.overlay p {
-  margin-bottom: 20px;
-}
-
-.features {
-  list-style: none;
-}
-
-.features li {
-  margin: 10px 0;
-}
-
-/* RIGHT SIDE */
-.right-section {
-  flex: 1;
-  background: #f5f5f5;
+.signup-brand {
   display: flex;
-  justify-content: center;
   align-items: center;
+  gap: var(--space-xs);
+  cursor: pointer;
+  width: fit-content;
 }
 
-.form-box {
-  width: 400px;
+.brand-logo {
+  font-size: 1.8rem;
 }
 
-.form-box h2 {
-  font-size: 28px;
-  margin-top: 110px;
+.brand-name {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
-.sub-text {
-  margin-bottom: 20px;
-  color: gray;
+.signup-hero-content {
+  margin-top: auto;
+  margin-bottom: auto;
+  max-width: 480px;
 }
 
-label {
-  display: block;
-  margin: 10px 0 5px;
+.signup-hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: var(--space-md);
+}
+
+.signup-hero-content p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: var(--space-xl);
+  line-height: 1.6;
+}
+
+.signup-features-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: 0;
+}
+
+.signup-features-list li {
+  font-size: 0.95rem;
   font-weight: 500;
 }
 
-input,
-select {
-  width: 100%;
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  margin-bottom: 10px;
-}
-
-/* ROLE */
-.roles {
+/* Right panel styles */
+.signup-right-panel {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-lg) var(--space-md);
+  position: relative;
+  min-height: 100vh;
 }
 
-.role-card {
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  cursor: pointer;
-  transition: 0.3s;
+@media (min-width: 992px) {
+  .signup-right-panel {
+    padding: var(--space-2xl) var(--space-xl);
+  }
 }
 
-.role-card:hover {
-  border-color: green;
+.signup-header-back {
+  position: absolute;
+  top: var(--space-lg);
+  left: var(--space-lg);
 }
 
-.role-card.active {
-  border: 2px solid green;
-  background: #e6ffe6;
-}
-
-/* BUTTON */
-.otp-btn {
-  width: 100%;
-  padding: 14px;
-  background: green;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.otp-btn:hover {
-  background: darkgreen;
-}
-
-.login-text {
-  margin-top: 15px;
-  text-align: center;
-}
-
-.login-text span {
-  color: green;
-  cursor: pointer;
-}
-
-/* OTP BOX */
-.otp-box {
+.signup-card {
+  width: min(100%, 580px);
+  max-width: 580px;
+  margin: var(--space-2xl) auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
   display: flex;
-  gap: 10px;
-  margin: 15px 0;
+  flex-direction: column;
 }
 
-.otp-box input {
-  width: 45px;
-  height: 50px;
+.signup-card-body {
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.signup-card-header {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2xs);
+  padding: var(--space-xl) var(--space-xl) var(--space-md) var(--space-xl);
+}
+
+.signup-card-header h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+}
+
+.signup-card-header p {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+/* Alert notifications */
+.signup-alert-danger {
+  background-color: #fee2e2;
+  border: 1px solid #fca5a5;
+  color: var(--color-danger);
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Form layouts */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.signup-row-2col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+@media (min-width: 576px) {
+  .signup-row-2col {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* District Dropdown list Styling */
+.select-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  width: 100%;
+}
+
+.select-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.select-field {
+  width: 100%;
+  height: 44px;
+  background-color: var(--color-bg-input);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0 var(--space-md);
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--color-text-main);
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235e6b5f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right var(--space-md) center;
+  background-size: 1.2em;
+}
+
+.select-field:focus {
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.15);
+}
+
+.select-field-error {
+  border-color: var(--color-danger);
+}
+
+.select-error-text {
+  font-size: 0.8rem;
+  color: var(--color-danger);
+  font-weight: 500;
+  margin-top: calc(-1 * var(--space-2xs));
+}
+
+/* Role Grid items selector */
+.role-selector-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.role-selector-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.role-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+}
+
+@media (min-width: 480px) {
+  .role-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.role-item-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), 
+              box-shadow var(--transition-fast), 
+              background-color var(--transition-fast);
+}
+
+.role-item-card:hover {
+  background-color: #fcfdfb;
+  border-color: var(--color-text-light);
+}
+
+.role-item-card.active {
+  background-color: var(--color-primary-light);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.role-emoji {
+  font-size: 1.75rem;
+}
+
+.role-meta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.role-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+
+.role-desc {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+}
+
+.signup-submit-btn {
+  width: 100%;
+  margin-top: var(--space-sm);
+}
+
+/* Step 2 verification OTP view styles */
+.otp-verification-header {
   text-align: center;
-  font-size: 18px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+  margin-bottom: var(--space-md);
 }
 
-/* OTP ROW */
-.otp-row {
+.otp-verification-header h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin-bottom: var(--space-2xs);
+}
+
+.otp-verification-header p {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.otp-box-container {
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
-  margin-bottom: 15px;
+  gap: var(--space-xs);
 }
 
-.resend {
-  color: green;
-  cursor: pointer;
-}
-
-.back {
-  margin-top: 10px;
+.otp-field-input {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
   text-align: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  background-color: var(--color-bg-input);
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.otp-field-input:focus {
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.15);
+}
+
+.otp-field-input:disabled {
+  background-color: var(--color-bg-main);
+  cursor: not-allowed;
+}
+
+.otp-error-text {
+  font-size: 0.8rem;
+  color: var(--color-danger);
+  font-weight: 500;
+  margin-top: calc(-1 * var(--space-2xs));
+}
+
+.otp-resend-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.otp-resend-btn {
+  background: none;
+  border: none;
+  font-weight: 700;
+  color: var(--color-primary);
   cursor: pointer;
-  color: gray;
+}
+
+.otp-resend-btn:hover {
+  color: var(--color-primary-hover);
+  text-decoration: underline;
+}
+
+.otp-back-link-btn {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  align-self: center;
+  transition: color var(--transition-fast);
+  margin-top: var(--space-2xs);
+}
+
+.otp-back-link-btn:hover:not(:disabled) {
+  color: var(--color-primary);
+}
+
+/* Footer styling elements */
+.signup-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--color-text-light);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin: var(--space-xs) 0;
+}
+
+.signup-divider::before,
+.signup-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.signup-divider span {
+  padding: 0 var(--space-md);
+}
+
+.signup-login-prompt {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.login-link {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.login-link:hover {
+  color: var(--color-primary-hover);
+  text-decoration: underline;
+}
+
+/* Password Toggle styles copied from login.css */
+.password-toggle-btn {
+  background: none;
+  border: none;
+  color: var(--color-text-light);
+  cursor: pointer;
+  padding: var(--space-2xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-toggle-btn:hover {
+  color: var(--color-primary);
+}
+
+.eye-svg {
+  width: 1.25rem;
+  height: 1.25rem;
 }

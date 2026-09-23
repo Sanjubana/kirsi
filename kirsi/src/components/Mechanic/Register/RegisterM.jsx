@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaScrewdriverWrench, FaUser, FaPhone, FaTractor, FaClock, FaLocationDot, FaCircleCheck, FaUserPlus } from "react-icons/fa6";
+import { BackButton } from "../../ui";
 import "./RegisterM.css";
 
 export default function RegisterM() {
@@ -26,8 +27,9 @@ export default function RegisterM() {
   };
 
   return (
-    <div className="register-container">
+    <div className="register-container fade-in">
       <div className="register-card">
+        <BackButton label="Back to Mechanics" to="/mechanic" className="register-back-btn" />
         <h2>
           <FaScrewdriverWrench />
           Register as Mechanic

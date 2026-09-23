@@ -1,25 +1,361 @@
-*{
+:root {
+  /* Fonts */
+  --font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
+  /* Colors - Organic/Agricultural Theme */
+  --color-primary: #2d6a4f;
+  --color-primary-hover: #1b4332;
+  --color-primary-light: #d8f3dc;
+  --color-primary-dark: #081c15;
+
+  --color-secondary: #52b788;
+  --color-secondary-hover: #40916c;
+  --color-secondary-light: #e8f5e9;
+
+  --color-accent: #d97706; /* Warm Amber */
+  --color-accent-hover: #b45309;
+  --color-accent-light: #fef3c7;
+
+  /* Feedback Colors */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #3b82f6;
+
+  /* Neutral Colors */
+  --color-bg-main: #f8faf7;      /* Soft green-tinted light background */
+  --color-bg-card: #ffffff;
+  --color-bg-input: #ffffff;
+  --color-text-main: #1b261c;    /* Deep forest-charcoal text */
+  --color-text-muted: #5e6b5f;   /* Medium muted grey-green text */
+  --color-text-light: #8fa090;   /* Muted helper text */
+  --color-border: #e0e5db;       /* Soft green-grey borders */
+  --color-border-focus: #2d6a4f;
+
+  /* Spacing (4px system) */
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  /* Border Radii */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows (Modern, soft elevation) */
+  --shadow-sm: 0 1px 3px rgba(27, 38, 28, 0.05), 0 1px 2px rgba(27, 38, 28, 0.02);
+  --shadow-md: 0 4px 6px -1px rgba(27, 38, 28, 0.08), 0 2px 4px -1px rgba(27, 38, 28, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(27, 38, 28, 0.1), 0 4px 6px -2px rgba(27, 38, 28, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(27, 38, 28, 0.15), 0 10px 10px -5px rgba(27, 38, 28, 0.04);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+  --transition-slow: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-body{
-min-height: 100vh;
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg-main);
+  color: var(--color-text-main);
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
-a{
+
+a {
   text-decoration: none;
   color: inherit;
-
+  transition: color var(--transition-fast);
 }
-.app{
+
+.app {
   width: 100%;
   margin: 0;
 }
-@keyframes fadeIn{
-  0%{
+
+@keyframes fadeIn {
+  0% {
     opacity: 0;
+    transform: translateY(8px);
   }
-  100%{
+  100% {
     opacity: 1;
+    transform: translateY(0);
   }
+}
+
+.fade-in {
+  animation: fadeIn var(--transition-slow) forwards;
+}
+
+/* ==========================================================================
+   Standardized Product & Provider Cards (kirsi UI Design System)
+   ========================================================================== */
+
+/* Standardized Product Grid and Cards (Buy, Rent) */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-lg);
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 420px; /* Enforce uniform min-height for all product cards */
+}
+
+.product-card-img-container {
+  position: relative;
+  width: 100%;
+  height: 200px; /* Fixed identical dimensions */
+  overflow: hidden;
+  background-color: var(--color-bg-main);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.product-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Prevents stretching */
+  transition: transform var(--transition-normal);
+}
+
+.product-card:hover .product-card-img {
+  transform: scale(1.05);
+}
+
+.product-card-badge {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  padding: var(--space-2xs) var(--space-sm);
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: var(--shadow-sm);
+  z-index: 2;
+}
+
+.product-card-badge.new,
+.product-card-badge.available {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-hover);
+  border: 1px solid rgba(45, 106, 79, 0.2);
+}
+
+.product-card-badge.used,
+.product-card-badge.rented {
+  background-color: var(--color-accent-light);
+  color: var(--color-accent-hover);
+  border: 1px solid rgba(217, 119, 6, 0.2);
+}
+
+.product-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  flex-grow: 1;
+}
+
+.product-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.product-card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  line-height: 1.3;
+  min-height: 2.8rem; /* Align titles by setting a min-height for 2 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-card-price {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.product-card-location {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  margin-bottom: var(--space-xs);
+}
+
+.product-card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xs);
+  margin-top: auto; /* Push buttons to the absolute bottom of the card */
+  padding-top: var(--space-xs);
+}
+
+.whatsapp-btn {
+  background-color: #25d366 !important;
+  color: white !important;
+  border-color: transparent !important;
+}
+
+.whatsapp-btn:hover:not(:disabled) {
+  background-color: #128c7e !important;
+}
+
+/* Standardized Provider Grid and Cards (Mechanics, Experts, Cropshops) */
+.provider-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-lg);
+}
+
+.provider-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 330px; /* Enforce uniform min-height for all provider cards */
+}
+
+.provider-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  flex-grow: 1;
+}
+
+.provider-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+.provider-card-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  font-size: 1.35rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.provider-card-avatar.shop {
+  background-color: var(--color-accent-light);
+  color: var(--color-accent);
+  border-color: rgba(217, 119, 6, 0.2);
+}
+
+.provider-card-badge {
+  background-color: #dcfce7;
+  color: #15803d;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: var(--space-2xs) var(--space-sm);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  border: 1px solid rgba(21, 128, 61, 0.15);
+}
+
+.provider-card-badge.unavailable {
+  background-color: #f3f4f6;
+  color: #4b5563;
+  border-color: rgba(75, 85, 99, 0.15);
+}
+
+.provider-card-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  flex-grow: 1;
+}
+
+.provider-card-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  line-height: 1.3;
+  min-height: 1.6rem; /* Standard title height */
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.provider-card-specialty {
+  font-size: 0.9rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  min-height: 2.5rem; /* Enforce 2 lines height for specialty / description alignment */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.provider-card-specialty.shop {
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.provider-card-meta {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2xs);
+}
+
+.provider-card-location {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  margin-top: auto; /* Push location details towards bottom, above actions */
+  padding-bottom: var(--space-xs);
+}
+
+.provider-card-action {
+  width: 100%;
+  margin-top: auto; /* Buttons remain strictly pinned to bottom */
 }

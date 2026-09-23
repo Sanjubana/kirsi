@@ -1,0 +1,430 @@
+{
+  "info": {
+    "_postman_id": "8b52f9a9-389f-4318-80f4-d022b7a90f33",
+    "name": "KIRSI API Collection",
+    "description": "API collection for KIRSI Farmer Assistance MERN Backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                { "key": "name", "value": "Suresh Patil", "type": "text" },
+                { "key": "email", "value": "suresh@kirsi.com", "type": "text" },
+                { "key": "phone", "value": "9822312345", "type": "text" },
+                { "key": "password", "value": "Suresh@123", "type": "text" },
+                { "key": "role", "value": "Farmer", "type": "text" },
+                { "key": "address", "value": "Shop 4, Market Yard, Shirur Bypass", "type": "text" },
+                { "key": "state", "value": "Maharashtra", "type": "text" },
+                { "key": "district", "value": "Pune", "type": "text" },
+                { "key": "village", "value": "Shirur", "type": "text" },
+                { "key": "pincode", "value": "412210", "type": "text" },
+                { "key": "latitude", "value": "18.8268", "type": "text" },
+                { "key": "longitude", "value": "74.3768", "type": "text" },
+                { "key": "profileImage", "type": "file", "src": [] }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/register",
+              "host": ["{{base_url}}"],
+              "path": ["api", "auth", "register"]
+            }
+          }
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"loginIdentifier\": \"suresh@kirsi.com\",\n  \"password\": \"Suresh@123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/login",
+              "host": ["{{base_url}}"],
+              "path": ["api", "auth", "login"]
+            }
+          }
+        },
+        {
+          "name": "Get Profile (Me)",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{auth_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/auth/me",
+              "host": ["{{base_url}}"],
+              "path": ["api", "auth", "me"]
+            }
+          }
+        },
+        {
+          "name": "Update Profile (Me)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{auth_token}}" }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                { "key": "name", "value": "Suresh R. Patil", "type": "text" },
+                { "key": "village", "value": "Shirur Center", "type": "text" }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/me",
+              "host": ["{{base_url}}"],
+              "path": ["api", "auth", "me"]
+            }
+          }
+        },
+        {
+          "name": "Forgot Password",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"loginIdentifier\": \"suresh@kirsi.com\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/forgot-password",
+              "host": ["{{base_url}}"],
+              "path": ["api", "auth", "forgot-password"]
+            }
+          }
+        },
+        {
+          "name": "Reset Password",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"password\": \"Suresh@456\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/reset-password/{{reset_token}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "auth", "reset-password", "{{reset_token}}"]
+            }
+          }
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/auth/logout",
+              "host": ["{{base_url}}"],
+              "path": ["api", "auth", "logout"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Crops",
+      "item": [
+        {
+          "name": "Get Crops",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/crops?category=Wheat",
+              "host": ["{{base_url}}"],
+              "path": ["api", "crops"],
+              "query": [
+                { "key": "category", "value": "Wheat" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Crop Details",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/crops/{{crop_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "crops", "{{crop_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Create Crop Listing",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{auth_token}}" }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                { "key": "cropName", "value": "Premium Sonalika Wheat", "type": "text" },
+                { "key": "category", "value": "Wheat", "type": "text" },
+                { "key": "quantity", "value": "500", "type": "text" },
+                { "key": "unit", "value": "kg", "type": "text" },
+                { "key": "price", "value": "₹2,200 / quintal", "type": "text" },
+                { "key": "description", "value": "High grade wheat from recent harvest, organic farming", "type": "text" },
+                { "key": "address", "value": "Plot 42, Mandi Yard, Shirur", "type": "text" },
+                { "key": "latitude", "value": "18.8268", "type": "text" },
+                { "key": "longitude", "value": "74.3768", "type": "text" },
+                { "key": "images", "type": "file", "src": [] }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/crops",
+              "host": ["{{base_url}}"],
+              "path": ["api", "crops"]
+            }
+          }
+        },
+        {
+          "name": "Get Nearby Crops",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/crops/nearby?latitude=18.5204&longitude=73.8567&maxDistance=50000",
+              "host": ["{{base_url}}"],
+              "path": ["api", "crops", "nearby"],
+              "query": [
+                { "key": "latitude", "value": "18.5204" },
+                { "key": "longitude", "value": "73.8567" },
+                { "key": "maxDistance", "value": "50000" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Tools",
+      "item": [
+        {
+          "name": "Get Tools",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/tools?buyOrSell=sell",
+              "host": ["{{base_url}}"],
+              "path": ["api", "tools"],
+              "query": [
+                { "key": "buyOrSell", "value": "sell" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Tool Listing",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{auth_token}}" }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                { "key": "toolName", "value": "Rotavator 7 Feet (Shaktiman)", "type": "text" },
+                { "key": "category", "value": "Rotavator", "type": "text" },
+                { "key": "buyOrSell", "value": "sell", "type": "text" },
+                { "key": "price", "value": "₹45,000", "type": "text" },
+                { "key": "description", "value": "Scarcely used, excellent condition", "type": "text" },
+                { "key": "address", "value": "MIDC Sector 4, Kharadi", "type": "text" },
+                { "key": "latitude", "value": "18.5510", "type": "text" },
+                { "key": "longitude", "value": "73.9377", "type": "text" },
+                { "key": "images", "type": "file", "src": [] }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/tools",
+              "host": ["{{base_url}}"],
+              "path": ["api", "tools"]
+            }
+          }
+        },
+        {
+          "name": "Get Nearby Tools",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/tools/nearby?latitude=18.5204&longitude=73.8567",
+              "host": ["{{base_url}}"],
+              "path": ["api", "tools", "nearby"],
+              "query": [
+                { "key": "latitude", "value": "18.5204" },
+                { "key": "longitude", "value": "73.8567" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Animals",
+      "item": [
+        {
+          "name": "Get Animals",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/animals",
+              "host": ["{{base_url}}"],
+              "path": ["api", "animals"]
+            }
+          }
+        },
+        {
+          "name": "Create Animal Listing",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{auth_token}}" }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                { "key": "animalType", "value": "Cow", "type": "text" },
+                { "key": "breed", "value": "Sahiwal", "type": "text" },
+                { "key": "age", "value": "3 years", "type": "text" },
+                { "key": "price", "value": "₹65,000", "type": "text" },
+                { "key": "description", "value": "High Milk Yield Sahiwal Cow, 15L/day", "type": "text" },
+                { "key": "address", "value": "Chowk Lane 4, Jhalawar", "type": "text" },
+                { "key": "latitude", "value": "24.5973", "type": "text" },
+                { "key": "longitude", "value": "76.1610", "type": "text" },
+                { "key": "images", "type": "file", "src": [] }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/animals",
+              "host": ["{{base_url}}"],
+              "path": ["api", "animals"]
+            }
+          }
+        },
+        {
+          "name": "Get Nearby Animals",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/animals/nearby?latitude=18.5204&longitude=73.8567",
+              "host": ["{{base_url}}"],
+              "path": ["api", "animals", "nearby"],
+              "query": [
+                { "key": "latitude", "value": "18.5204" },
+                { "key": "longitude", "value": "73.8567" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Mechanics",
+      "item": [
+        {
+          "name": "Get Mechanics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/mechanics?availability=true",
+              "host": ["{{base_url}}"],
+              "path": ["api", "mechanics"],
+              "query": [
+                { "key": "availability", "value": "true" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Mechanic Listing",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{auth_token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Suresh Patil\",\n  \"shopName\": \"Patil Tractor Repairs\",\n  \"phone\": \"9822312345\",\n  \"services\": [\"Mahindra Special\", \"Heavy Engine Rebuilds\", \"Clutch Overhaul\"],\n  \"address\": \"Shop 4, Market Yard, Shirur Bypass Rd\",\n  \"latitude\": 18.8268,\n  \"longitude\": 74.3768,\n  \"rating\": 4.8\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/mechanics",
+              "host": ["{{base_url}}"],
+              "path": ["api", "mechanics"]
+            }
+          }
+        },
+        {
+          "name": "Get Nearby Mechanics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/mechanics/nearby?latitude=18.5204&longitude=73.8567",
+              "host": ["{{base_url}}"],
+              "path": ["api", "mechanics", "nearby"],
+              "query": [
+                { "key": "latitude", "value": "18.5204" },
+                { "key": "longitude", "value": "73.8567" }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:5000", "type": "string" },
+    { "key": "auth_token", "value": "your_jwt_here", "type": "string" },
+    { "key": "crop_id", "value": "some_crop_object_id", "type": "string" },
+    { "key": "reset_token", "value": "password_reset_token", "type": "string" }
+  ]
+}

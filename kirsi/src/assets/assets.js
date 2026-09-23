@@ -15,6 +15,8 @@ import thresher2 from './thresher2.jpeg'
 import threshermaize from './threshermaize.jpeg'
 import trauli from './trauli.jpeg'
 import troly2 from './troly2.jpeg'
+import cow from './cow.png'
+import goat from './goat.png'
 
 export const assets = {
     logo,
@@ -34,4 +36,6 @@ export const assets = {
     threshermaize,
     trauli,
     troly2,
+    cow,
+    goat,
 }

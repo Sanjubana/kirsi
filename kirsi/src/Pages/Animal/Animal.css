@@ -1,78 +1,102 @@
-.animal-page {
-  padding: 24px;
-  background: #f9fafb;
+.animal-page,
+.animal-subpage {
+  padding: var(--space-xl) var(--space-md);
+  max-width: 1200px;
+  margin: 0 auto;
   min-height: 100vh;
 }
-
 
 .animal-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 30px;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-2xl);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-md);
 }
 
-.back-arrow {
+.animal-header .back-arrow {
   font-size: 22px;
   cursor: pointer;
+  color: var(--color-primary);
+  transition: transform var(--transition-fast);
 }
 
-.animal-header h2 {
-  margin: 0;
-  font-size: 22px;
+.animal-header .back-arrow:hover {
+  transform: translateX(-3px);
 }
 
-.animal-header p {
-  margin: 2px 0 0;
-  color: #6b7280;
-  font-size: 14px;
+.animal-title-section h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
 }
 
+.animal-title-section p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin-top: var(--space-2xs);
+}
 
+/* Service main grid */
 .animal-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 26px;
+  gap: var(--space-lg);
 }
-
 
 .animal-card {
-  background: #fff;
-  border-radius: 18px;
-  padding: 30px 22px;
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl) var(--space-md);
   text-align: center;
   cursor: pointer;
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
-
 
 .animal-card:hover {
-  transform: scale(1.03);
-  border-color: #3b82f6;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08);
+  transform: translateY(-5px);
+  border-color: rgba(45, 106, 79, 0.3);
+  box-shadow: var(--shadow-lg);
 }
 
+.animal-card h3 {
+  margin: var(--space-sm) 0 var(--space-2xs);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.animal-card p {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
 
 .icon {
   width: 58px;
   height: 58px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 26px;
-  margin: 0 auto 16px;
+  margin: 0 auto var(--space-sm);
+  box-shadow: var(--shadow-sm);
 }
 
 .icon.health {
-  background: #d1fae5;
-  color: #059669;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
 }
 
 .icon.disease {
   background: #fee2e2;
-  color: #dc2626;
+  color: var(--color-danger);
 }
 
 .icon.vet {
@@ -81,16 +105,128 @@
 }
 
 .icon.trade {
-  background: #fef3c7;
-  color: #d97706;
+  background: var(--color-accent-light);
+  color: var(--color-accent);
 }
 
-.animal-card h3 {
-  margin: 8px 0;
-  font-size: 18px;
+/* Subpages details styles */
+.animal-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-lg);
 }
 
-.animal-card p {
-  font-size: 14px;
-  color: #6b7280;
+.animal-detail-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.animal-card-title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.animal-card-title-row h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+
+.animal-card-icon {
+  font-size: 1.75rem;
+}
+
+.animal-card-body-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  flex-grow: 1;
+}
+
+.animal-card-description {
+  font-size: 0.95rem;
+  color: var(--color-text-main);
+  line-height: 1.5;
+}
+
+.animal-tips-box {
+  background-color: var(--color-bg-main);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+  margin-top: auto;
+}
+
+.animal-tips-box h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.animal-tips-box ul {
+  padding-left: var(--space-md);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+/* Disease subpage details */
+.animal-search-bar {
+  margin-bottom: var(--space-xl);
+  max-width: 600px;
+}
+
+.disease-card .disease-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-danger);
+}
+
+.disease-animal-tag {
+  font-size: 0.8rem;
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-hover);
+  padding: var(--space-2xs) var(--space-sm);
+  border-radius: var(--radius-full);
+  display: inline-block;
+  margin-top: var(--space-xs);
+  font-weight: 600;
+}
+
+.disease-info-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.disease-info-section p {
+  margin: 0;
+  color: var(--color-text-main);
+}
+
+.animal-empty-state {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3xl) 0;
+  color: var(--color-text-light);
+}
+
+.animal-empty-state span {
+  font-size: 3rem;
+  margin-bottom: var(--space-sm);
+}
+
+.animal-empty-state p {
+  font-size: 1rem;
+  font-weight: 500;
 }

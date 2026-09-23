@@ -1,106 +1,193 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Buytools.css";
 import { assets } from "../../assets/assets";
-import { FaArrowLeft } from "react-icons/fa";
+import { Card, Button, BackButton, Skeleton } from "../ui";
+import { useLocationContext } from "../../context/LocationContext";
+import { calculateDistance } from "../../utils/mapsHelper";
+import LocationBar from "../Location/LocationBar";
+import DistanceBadge from "../Location/DistanceBadge";
+import MapButton from "../Location/MapButton";
+import DirectionsButton from "../Location/DirectionsButton";
 
-const tools = [
+const baseToolsList = [
   {
-    name: "Mahindra Panja",
+    name: "Mahindra Panja (Five Tine Harvester)",
     price: "₹35,000",
     status: "Used",
-    distance: "12 km away",
     location: "Shirur",
-    image: assets.panja
+    phone: "+91 98765 01001",
+    address: "Market Yard Chowk, Shirur",
+    image: assets.panja,
+    latOffset: 0.045,
+    lngOffset: -0.025
   },
   {
-    name: "Rotavator 7 Feet",
+    name: "Rotavator 7 Feet (Shaktiman)",
     price: "₹45,000",
     status: "New",
-    distance: "8 km away",
     location: "Kharadi",
-    image: assets.rotovator1
+    phone: "+91 98765 01002",
+    address: "MIDC Sector 4, Kharadi",
+    image: assets.rotovator1,
+    latOffset: 0.062,
+    lngOffset: 0.054
   },
   {
-    name: "Rotovator 5 Feet",
+    name: "Rotavator 5 Feet (Sonalika)",
     price: "₹35,000",
     status: "Used",
-    distance: "18 km away",
     location: "Alandi",
-    image: assets.rotovator2
+    phone: "+91 98765 01003",
+    address: "Dehu-Alandi Road, Alandi",
+    image: assets.rotovator2,
+    latOffset: 0.108,
+    lngOffset: 0.021
   },
   {
-    name: "Sowing Machine",
+    name: "Sowing Machine 9 Row",
     price: "₹50,000",
     status: "New",
-    distance: "25 km away",
     location: "Hadapsar",
-    image: assets.sowingmachine1
+    phone: "+91 98765 01004",
+    address: "Mandi Road, Hadapsar",
+    image: assets.sowingmachine1,
+    latOffset: -0.025,
+    lngOffset: 0.038
   },
   {
-    name: "Thresher ",
+    name: "Mahindra Wheat Thresher",
     price: "₹1,12,000",
     status: "Used",
-    distance: "15 km away",
     location: "Chakan",
-    image: assets.thresher1
+    phone: "+91 98765 01005",
+    address: "Pune Bypass Road, Chakan",
+    image: assets.thresher1,
+    latOffset: 0.115,
+    lngOffset: -0.068
   },
   {
-    name: "Thresher",
+    name: "Standard Paddy Thresher",
     price: "₹1,58,000",
     status: "New",
-    distance: "22 km away",
     location: "Baramati",
-    image: assets.thresher2
+    phone: "+91 98765 01006",
+    address: "Indapur Road, Baramati",
+    image: assets.thresher2,
+    latOffset: -0.185,
+    lngOffset: 0.214
   }
-  
 ];
 
 function BuyTools() {
+  const { coords, cityName } = useLocationContext();
+  const [loading, setLoading] = useState(true);
+
+  const userLat = coords.latitude || 18.5204;
+  const userLng = coords.longitude || 73.8567;
+
+  useEffect(() => {
+    setLoading(true);
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 600);
+    return () => clearTimeout(timer);
+  }, [coords, cityName]);
+
+  // Process and sort tools by distance
+  const sortedTools = baseToolsList.map((tool) => {
+    const lat = userLat + tool.latOffset;
+    const lng = userLng + tool.lngOffset;
+    const distanceValue = calculateDistance(userLat, userLng, lat, lng);
+    return {
+      ...tool,
+      distanceValue,
+      coords: { latitude: lat, longitude: lng }
+    };
+  }).sort((a, b) => a.distanceValue - b.distanceValue);
+
   return (
-    <div className="buytools-page">
-        <div className="buytools-header">
-            <button className="back-btn" onClick={() => window.history.back()}>
-                <FaArrowLeft />
-            </button>
-            
-       <h2 className="section-title">Buy Tools</h2>
+    <div className="buytools-page fade-in">
+      <div className="buytools-header">
+        <BackButton label="Back to Tools" to="/tools" />
+        <h2 className="section-title">Buy Tools & Equipment</h2>
+        <p className="section-subtitle">Buy machinery directly from nearby farmers at best prices</p>
+      </div>
 
-      
- </div>
-      <div className="tools-grid">
+      {/* Location Bar */}
+      <LocationBar />
 
-        {tools.map((tool, index) => (
-          <div className="tool-card" key={index}>
-
-            <img src={tool.image} alt="" className="tool-img" />
-
-            <div className="tool-info">
-
-              <div className="tool-header">
-                <h3>{tool.name}</h3>
-
-                <span className={`badge ${tool.status}`}>
+      {loading ? (
+        <div className="product-grid">
+          <Skeleton type="card" count={6} />
+        </div>
+      ) : (
+        <div className="product-grid">
+          {sortedTools.map((tool, index) => (
+            <Card key={index} hoverLift className="product-card">
+              <div className="product-card-img-container">
+                <img src={tool.image} alt={tool.name} className="product-card-img" />
+                <span className={`product-card-badge ${tool.status.toLowerCase()}`}>
                   {tool.status}
                 </span>
               </div>
 
-              <h2 className="price">{tool.price}</h2>
+              <Card.Body className="product-card-body" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+                <div className="product-card-header">
+                  <h3 className="product-card-title">{tool.name}</h3>
+                  <h2 className="product-card-price">{tool.price}</h2>
+                </div>
 
-              <p className="location">
-                📍 {tool.distance} • {tool.location}
-              </p>
+                <div style={{ margin: 'var(--space-2xs) 0', fontSize: '0.85rem', color: 'var(--color-text-main)' }}>
+                  <p style={{ color: 'var(--color-text-muted)', fontSize: '0.82rem' }}>🏠 <strong>Address:</strong> {tool.address}</p>
+                </div>
 
-              <div className="btn-group">
-                <button className="call-btn">📞 Call</button>
-                <button className="whatsapp-btn">💬 WhatsApp</button>
-              </div>
+                <div style={{ marginTop: 'auto', marginBottom: 'var(--space-md)' }}>
+                  <DistanceBadge distance={tool.distanceValue} locationName={tool.location} />
+                </div>
 
-            </div>
-          </div>
-        ))}
-
-      </div>
-
+                <div className="product-card-actions" style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+                    <Button 
+                      variant="primary" 
+                      size="sm" 
+                      onClick={() => alert(`Calling seller at ${tool.phone} for ${tool.name}`)}
+                      leftIcon={<span>📞</span>}
+                    >
+                      Call
+                    </Button>
+                    <Button 
+                      variant="secondary" 
+                      size="sm" 
+                      onClick={() => window.open('https://wa.me/', '_blank')}
+                      leftIcon={<span>💬</span>}
+                      className="whatsapp-btn"
+                    >
+                      WhatsApp
+                    </Button>
+                  </div>
+                  
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+                    <MapButton 
+                      destLat={tool.coords.latitude} 
+                      destLng={tool.coords.longitude} 
+                      destAddress={`${tool.address}, India`}
+                      label="Map"
+                    />
+                    <DirectionsButton 
+                      userLat={userLat} 
+                      userLng={userLng} 
+                      destLat={tool.coords.latitude} 
+                      destLng={tool.coords.longitude} 
+                      destAddress={`${tool.address}, India`}
+                      label="Directions"
+                    />
+                  </div>
+                </div>
+              </Card.Body>
+            </Card>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

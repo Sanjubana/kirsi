@@ -1,200 +1,367 @@
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
-}
-
-/* MAIN CONTAINER */
-.container {
+.login-page-container {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--color-bg-main);
 }
 
-/* LEFT SIDE */
-.left {
+/* Left panel styles */
+.login-left-panel {
+  display: none;
   flex: 1;
-  background: linear-gradient(rgba(0,128,0,0.75), rgba(0,128,0,0.75)),
-              url("https://images.unsplash.com/photo-1592982537447-7440770cbfc9");
+  background-image: url('../../assets/farmer.jpeg'); /* Fallback image */
   background-size: cover;
   background-position: center;
-  color: white;
+  position: relative;
+}
+
+@media (min-width: 992px) {
+  .login-left-panel {
+    display: block;
+  }
+}
+
+.login-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(27, 67, 50, 0.9) 0%,
+    rgba(8, 28, 21, 0.95) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-2xl);
+  color: #ffffff;
+}
+
+.login-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  cursor: pointer;
+  width: fit-content;
+}
+
+.brand-logo {
+  font-size: 1.8rem;
+}
+
+.brand-name {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.login-hero-content {
+  margin-top: auto;
+  margin-bottom: auto;
+  max-width: 480px;
+}
+
+.login-hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: var(--space-md);
+}
+
+.login-hero-content p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: var(--space-xl);
+  line-height: 1.6;
+}
+
+.login-perks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.perk-item {
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+/* Right panel styles */
+.login-right-panel {
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 60px;
-}
-
-.logo {
-  display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 30px;
+  padding: var(--space-lg) var(--space-md);
+  position: relative;
+  min-height: 100vh;
 }
 
-.logo-box {
-  background: white;
-  color: green;
-  padding: 10px;
-  border-radius: 12px;
-  font-size: 20px;
+@media (min-width: 768px) {
+  .login-right-panel {
+    padding: var(--space-2xl) var(--space-lg);
+  }
 }
 
-.left h1 {
-  font-size: 42px;
-  font-weight: 700;
-  margin-bottom: 10px;
+.login-header-back {
+  position: absolute;
+  top: var(--space-lg);
+  left: var(--space-lg);
 }
 
-.left p {
-  font-size: 16px;
-  opacity: 0.9;
+.login-card {
+  width: min(100%, 560px);
+  max-width: 560px;
+  margin: var(--space-2xl) auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
 }
 
-/* RIGHT SIDE */
-.right {
-  flex: 1;
-  background: #f7f7f7;
+.login-card-body {
+  padding: var(--space-xl);
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  gap: var(--space-lg);
 }
 
-/* CARD */
-.card {
-  width: 360px;
-  background: white;
-  padding: 30px;
-  border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+.login-card-header {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2xs);
+  padding: var(--space-xl) var(--space-xl) var(--space-md) var(--space-xl);
 }
 
-.card h2 {
-  font-size: 22px;
-  margin-bottom: 8px;
+.login-card-header h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
 }
 
-.card p {
-  font-size: 14px;
-  color: gray;
-  margin-bottom: 2px;
+.login-card-header p {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
 }
 
-/* INPUT */
-input {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  margin-bottom: 15px;
-  font-size: 14px;
-  outline: none;
-  transition: 0.2s;
-}
-
-/* input:focus {
-  border-color: green;
-} */
-
-/* TOGGLE BUTTONS */
-.toggle-btns {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
-}
-
-.toggle-btns button {
-  flex: 1;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  /* background: white; */
-  cursor: pointer;
-  font-size: 14px;
-  /* transition: 0.2s; */
-}
-
-/* NO DARK ACTIVE */
-/* .toggle-btns button:hover {
-  border-color: green;
-  color: green;
-} */
-
-/* PRIMARY BUTTON */
-.primary-btn {
-  width: 100%;
-  padding: 12px;
-  border-radius: 10px;
-  border: none;
-  background: #0aa34f;
-  color: white;
-  font-size: 15px;
+/* Alerts */
+.login-alert-danger {
+  background-color: #fee2e2;
+  border: 1px solid #fca5a5;
+  color: var(--color-danger);
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
   font-weight: 500;
-  cursor: pointer;
-  margin-bottom: 15px;
-  transition: 0.3s;
 }
 
-/* .primary-btn:hover {
-  background: #088c43;
-} */
-
-/* OTP BOX */
-.otp-box {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 15px;
+/* Tab Headers */
+.login-tab-headers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 2px solid var(--color-border);
 }
 
-.otp-box input {
-  width: 45px;
-  height: 50px;
-  text-align: center;
-  font-size: 18px;
-  border-radius: 10px;
-}
-
-/* FORGOT PASSWORD */
-.forgot {
-  font-size: 12px;
-  color: #0aa34f;
-  margin-bottom: 10px;
-  cursor: pointer;
-}
-
-/* DIVIDER */
-.divider {
-  text-align: center;
-  margin: 15px 0;
-  color: #aaa;
-  font-size: 13px;
-}
-
-/* SIGNUP */
-.signup {
-  text-align: center;
-  font-size: 14px;
-}
-
-.signup span {
-  color: #0aa34f;
+.login-tab-btn {
+  background: none;
+  border: none;
+  padding: var(--space-sm);
+  font-family: inherit;
   font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  cursor: pointer;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+  text-align: center;
+  position: relative;
+  bottom: -2px; /* overlap border */
+  border-bottom: 2px solid transparent;
+}
+
+.login-tab-btn.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+/* Form layout */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.password-toggle-btn {
+  background: none;
+  border: none;
+  color: var(--color-text-light);
+  cursor: pointer;
+  padding: var(--space-2xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-toggle-btn:hover {
+  color: var(--color-primary);
+}
+
+.eye-svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.forgot-password-link {
+  align-self: flex-end;
+  margin-top: calc(-1 * var(--space-2xs));
+}
+
+.forgot-password-link a {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.forgot-password-link a:hover {
+  color: var(--color-primary-hover);
+  text-decoration: underline;
+}
+
+.login-submit-btn {
+  width: 100%;
+  margin-top: var(--space-sm);
+}
+
+/* OTP box code display */
+.otp-input-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.otp-input-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.otp-box-container {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-xs);
+}
+
+.otp-field-input {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  background-color: var(--color-bg-input);
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.otp-field-input:focus {
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.15);
+}
+
+.otp-field-input:disabled {
+  background-color: var(--color-bg-main);
+  cursor: not-allowed;
+}
+
+.otp-error-text {
+  font-size: 0.8rem;
+  color: var(--color-danger);
+  font-weight: 500;
+  margin-top: calc(-1 * var(--space-2xs));
+}
+
+.otp-resend-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.otp-resend-btn {
+  background: none;
+  border: none;
+  font-weight: 700;
+  color: var(--color-primary);
   cursor: pointer;
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .container {
-    flex-direction: column;
-  }
+.otp-resend-btn:hover {
+  color: var(--color-primary-hover);
+  text-decoration: underline;
+}
 
-  .left {
-    height: 40%;
-    padding: 30px;
-  }
+/* Footer elements */
+.login-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--color-text-light);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin: var(--space-xs) 0;
+}
 
-  .right {
-    height: 60%;
-  }
+.login-divider::before,
+.login-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.login-divider span {
+  padding: 0 var(--space-md);
+}
+
+.login-signup-prompt {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.signup-link {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.signup-link:hover {
+  color: var(--color-primary-hover);
+  text-decoration: underline;
+}
+
+/* Remember Me and Forgot Password Row */
+.remember-forgot-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: calc(-1 * var(--space-2xs));
+  padding: 0 var(--space-2xs);
+}
+
+.remember-me-checkbox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  user-select: none;
+}
+
+.remember-me-checkbox input {
+  cursor: pointer;
+  accent-color: var(--color-primary);
+  width: 16px;
+  height: 16px;
 }

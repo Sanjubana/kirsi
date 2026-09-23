@@ -1,4 +1,6 @@
+import React from "react";
 import "./Experts.css";
+import { Card, Button, BackButton } from "../ui";
 
 const advisors = [
   {
@@ -30,51 +32,63 @@ const advisors = [
   },
 ];
 
-export default function CropAdvisor() {
+export default function ExpertsList() {
   return (
-    <div className="advisor-page">
-     
-      <div className="advisor-header">
-        <h1>Crop Advisors</h1>
-        <p>Find trusted crop advisors near you</p>
+    <div className="experts-page fade-in">
+      <div className="experts-header">
+        <BackButton label="Back to Crops" to="/crops" />
+        <div className="experts-title-section">
+          <h2>Crop Advisors & Experts</h2>
+          <p>Find trusted advisors for better crop yield and expert consultation</p>
+        </div>
       </div>
 
-     
-      <div className="advisor-location">
-        <span>📍 Showing results near <b>Pune</b> within 50 km</span>
-        <button className="change-location">Change location</button>
+      <div className="location-bar">
+        <div className="location-bar-left">
+          <span>📍</span>
+          <span>Showing results near <b>Pune</b> within 50 km</span>
+        </div>
+        <Button variant="text" size="sm" onClick={() => alert('Location selection coming soon!')}>
+          Change location
+        </Button>
       </div>
 
-      
-      <div className="advisor-title">
-        <h2>Advisor Services</h2>
-        <p>Expert guidance for better crop yield</p>
-      </div>
-
-      <div className="advisor-grid">
+      <div className="provider-grid">
         {advisors.map((advisor) => (
-          <div className="advisor-card" key={advisor.id}>
-            <div className="advisor-avatar">
-              {advisor.name.charAt(0)}
-            </div>
+          <Card key={advisor.id} hoverLift className="provider-card">
+            <Card.Body className="provider-card-body">
+              <div className="provider-card-top">
+                <div className="provider-card-avatar">
+                  {advisor.name.charAt(0)}
+                </div>
+                {advisor.available && (
+                  <span className="provider-card-badge">
+                    ✅ Available Now
+                  </span>
+                )}
+              </div>
 
-            {advisor.available && (
-              <span className="advisor-status available">
-                Available Now
-              </span>
-            )}
+              <div className="provider-card-details">
+                <h3 className="provider-card-name">{advisor.name}</h3>
+                <p className="provider-card-specialty">🌱 {advisor.specialty}</p>
+                <p className="provider-card-meta">
+                  Experience: <strong>{advisor.experience}</strong>
+                </p>
+                <p className="provider-card-location">
+                  📍 {advisor.distance} • {advisor.location}
+                </p>
+              </div>
 
-            <h3>{advisor.name}</h3>
-            <p className="advisor-specialty">🌱 {advisor.specialty}</p>
-            <p>Experience: {advisor.experience}</p>
-            <p className="advisor-location-text">
-              📍 {advisor.distance} • {advisor.location}
-            </p>
-
-            <button className="advisor-btn">
-              📞 Call Advisor
-            </button>
-          </div>
+              <Button
+                variant="primary"
+                className="provider-card-action"
+                leftIcon={<span>📞</span>}
+                onClick={() => alert(`Calling ${advisor.name}...`)}
+              >
+                Call Advisor
+              </Button>
+            </Card.Body>
+          </Card>
         ))}
       </div>
     </div>

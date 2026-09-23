@@ -1,138 +1,125 @@
-.advisor-page {
-  padding: 30px 60px;
-  background: #f9fafb;
+.experts-page {
+  padding: var(--space-xl) var(--space-md);
+  max-width: 1200px;
+  margin: 0 auto;
   min-height: 100vh;
-  font-family: "Segoe UI", sans-serif;
 }
 
-
-.advisor-header h1 {
-  font-size: 34px;
-  font-weight: 700;
-  margin-bottom: 5px;
+.experts-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-md);
 }
 
-.advisor-header p {
-  color: #555;
-  font-size: 15px;
+.experts-title-section h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
 }
 
+.experts-title-section p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin-top: var(--space-2xs);
+}
 
-.advisor-location {
-  margin: 25px 0;
-  background: #ecfdf3;
-  border-radius: 12px;
-  padding: 14px 18px;
+.location-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #15803d;
-  font-size: 14px;
+  background-color: var(--color-primary-light);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-lg);
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
-.change-location {
-  background: none;
-  border: none;
-  color: #15803d;
-  font-weight: 600;
-  cursor: pointer;
+.location-bar-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-text-main);
 }
 
-
-.advisor-title {
-  margin-top: 20px;
-}
-
-.advisor-title h2 {
-  font-size: 22px;
-  font-weight: 700;
-}
-
-.advisor-title p {
-  color: #666;
-  font-size: 14px;
-}
-
-
-.advisor-grid {
+.experts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 25px;
-  margin-top: 25px;
+  gap: var(--space-lg);
 }
 
-
-.advisor-card {
-  background: #ffffff;
-  border-radius: 18px;
-  padding: 22px;
-  position: relative;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-  transition: 0.3s ease;
+.expert-card {
+  cursor: default;
 }
 
-.advisor-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+.expert-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
 }
 
-.advisor-avatar {
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background: #d1fae5;
-  color: #047857;
+.expert-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.expert-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  font-size: 1.4rem;
+  font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
-  font-size: 18px;
-  margin-bottom: 10px;
+  border: 2px solid var(--color-border);
 }
 
-
-.advisor-status {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  padding: 4px 10px;
-  font-size: 12px;
-  border-radius: 20px;
-  font-weight: 600;
-}
-
-.available {
-  background: #dcfce7;
+.expert-available-badge {
+  background-color: #dcfce7;
   color: #15803d;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: var(--space-2xs) var(--space-xs);
+  border-radius: var(--radius-full);
 }
 
+.expert-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
 
-.advisor-specialty {
+.expert-details h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.expert-specialty {
+  font-size: 0.9rem;
+  color: var(--color-primary);
   font-weight: 600;
-  margin: 5px 0;
 }
 
-.advisor-location-text {
-  color: #444;
-  font-size: 14px;
-  margin-top: 5px;
+.expert-exp {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
 }
 
+.expert-location {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
 
-.advisor-btn {
+.expert-call-btn {
   width: 100%;
-  margin-top: 15px;
-  padding: 12px;
-  border-radius: 10px;
-  background: #16a34a;
-  color: white;
-  border: none;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.advisor-btn:hover {
-  background: #15803d;
+  margin-top: var(--space-xs);
 }

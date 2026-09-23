@@ -32,7 +32,7 @@
 
 }
 
-.card {
+.service-home-card {
   background: #ffffff;
   width: 320px;
   height: 400px;
@@ -41,30 +41,32 @@
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
   text-align: left;
   position: relative;
-  transition: box-shadow 0.3s ease;
-  border: none;
+  transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+  border: 1px solid var(--color-border);
   outline: none;
 }
-.card:hover {
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-2xl */
-  transform: scale(1.05);
+.service-home-card:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); /* shadow-2xl */
+  transform: scale(1.03);
   background-color: #f0fdf4; /* green-50 */
   border-color: #bbf7d0; /* green-200 */
 }
 
 
-.card h2 {
+.service-home-card h2 {
   margin-top: 15px;
   font-size: 22px;
+  color: var(--color-primary-dark);
 }
 
-.card p {
-  color: #555;
+.service-home-card p {
+  color: var(--color-text-muted);
   margin: 10px 0 20px;
+  font-size: 0.95rem;
 }
 
-.card button {
-  background: linear-gradient(90deg, #2e7d32, #43a047);
+.service-home-card button {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
   color: white;
   border: none;
   padding: 12px 22px;
@@ -73,18 +75,20 @@
   cursor: pointer;
   margin-top: 15px;
   width: 100%;
-  
+  font-weight: 600;
+  transition: all var(--transition-fast);
 }
 
-.card button:hover {
-  border: 2px solid #7ccfc6;
-  box-shadow: 0 0 0  2px rgba(124, 207, 198, 0.6),0 10px 40px rgba(0,0,0,0.12);
+.service-home-card button:hover {
+  box-shadow: 0 4px 12px rgba(45, 106, 79, 0.2);
+  filter: brightness(1.05);
 }
 
-.icon {
+.service-home-icon {
   width: 45px;
   height: 45px;
-  background: #e8f5e9;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -92,13 +96,14 @@
   font-size: 22px;
 }
 
-.info {
+.service-home-info {
   display: block;
   margin-top: 25px;
-  background: #e0f2f1;
+  background: #e8f5e9;
   padding: 12px;
   border-radius: 12px;
   font-size: 13px;
-  color: #00695c;
+  color: var(--color-primary-hover);
   text-align: center;
+  font-weight: 500;
 }
