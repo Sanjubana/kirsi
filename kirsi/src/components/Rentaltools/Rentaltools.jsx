@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./rentalTools.css";
+import "./RentalTools.css";
 import { assets } from "../../assets/assets";
 import { Card, Button, BackButton, Skeleton } from "../ui";
 import { useLocationContext } from "../../context/LocationContext";
