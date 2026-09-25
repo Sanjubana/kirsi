@@ -40,36 +40,36 @@
   font-weight: 500;
 }
 
-.card-grid {
+.product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: var(--space-lg);
 }
 
-.tool-card {
+.product-card {
   display: flex;
   flex-direction: column;
 }
 
-.tool-img-container {
+.product-card-img-container {
   position: relative;
   height: 190px;
   overflow: hidden;
   background-color: var(--color-bg-main);
 }
 
-.tool-img {
+.product-card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform var(--transition-normal);
 }
 
-.tool-card:hover .tool-img {
+.product-card:hover .product-card-img {
   transform: scale(1.05);
 }
 
-.tag-badge {
+.product-card-badge {
   position: absolute;
   top: var(--space-sm);
   right: var(--space-sm);
@@ -81,30 +81,30 @@
   letter-spacing: 0.05em;
 }
 
-.tag-badge.new {
+.product-card-badge.new {
   background-color: var(--color-primary-light);
   color: var(--color-primary-hover);
 }
 
-.tag-badge.used {
+.product-card-badge.used {
   background-color: var(--color-accent-light);
   color: var(--color-accent-hover);
 }
 
-.tool-card-body-details {
+.product-card-body {
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
   flex-grow: 1;
 }
 
-.tool-meta-header h3 {
+.product-card-header h3 {
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--color-text-main);
 }
 
-.price {
+.product-card-price {
   font-size: 1.3rem;
   font-weight: 800;
   color: var(--color-primary);
@@ -116,19 +116,19 @@
   color: var(--color-text-muted);
 }
 
-.action-row {
+.product-card-actions {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-xs);
   margin-top: auto;
 }
 
-.whatsapp-btn-override {
+.whatsapp-btn {
   background-color: #25d366 !important;
   color: white !important;
   border-color: transparent !important;
 }
 
-.whatsapp-btn-override:hover:not(:disabled) {
+.whatsapp-btn:hover:not(:disabled) {
   background-color: #128c7e !important;
 }
